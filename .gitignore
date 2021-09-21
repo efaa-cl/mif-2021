@@ -1,0 +1,6 @@
+.ipynb_checkpoints/
+desa/
+modules/__pycache__/
+deprecated/
+private/
+*_mio.*
