@@ -1,0 +1,27 @@
+P(1Y)*f1y + P(2Y)*f2y + P(3Y)*f3y + P(4Y)*f4y + P(5Y)*f5y +
+P(6Y)*f6y + P(7Y)*f7y = 1 Ojo que cada flujos depende de la tasa fija a 7Y --> f(r7y, ...)
+
+P(6Y) = interp(P(5Y), P(7Y))
+
+P(1Y)*f1y + P(2Y)*f2y + P(3Y)*f3y + P(4Y)*f4y + P(5Y)*f5y +
+interp[P(5Y), P(7Y)]*f6y + P(7Y)*f7y= 1
+
+Con Newton-Raphson resuelvo lo anterior.
+
+Swap de 1Y
+P(1Y) * f(r1y, 1y) = 1 ---> P(1y) = 1 / f(r1y, 1y)
+
+Swap de 18M
+P(6M) * f(r18M, 6M) + P(18M) * f(r18M, 18M) = 1
+
+P(18M) = (1 - P(6M) * f(r18M, 6M)) / f(r18M, 18M)
+
+Swap de 2Y
+P(1Y) * f(r2Y, 1Y) + P(2Y) * f(r2Y, 2Y) = 1
+
+P(2Y) = (1 - P(1Y) * f(r2Y, 1Y)) / (r2Y, 2Y)
+
+Así sucesivamente hasta 5Y
+
+Pero el swap de 7Y agrega 2 incógnitas con su ecuación y eso obliga a imponer la interpolación.
+
