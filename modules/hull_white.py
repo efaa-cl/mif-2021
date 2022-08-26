@@ -234,7 +234,13 @@ def sim_hw_many_at(gamma, sigma, theta, r0, num_sim, num_steps, seed = None):
             sim[2 * i + 1][j] = r
     return tiempo, sim
 
-def sz(to: float, tb: float, gamma: float, sigma: float) -> float:
+
+def sz(
+    to: float,
+    tb: float,
+    gamma: float,
+    sigma: float
+) -> float:
     """
     Calcula el valor de la desviación estándar de los retornos logarítmicos en un período to de un bono cupón cero que vence en tb en el modelo HW.
     
@@ -261,9 +267,17 @@ class CallPut(Enum):
     PUT = 2
 
 
-def zcb_call_put(c_p: CallPut, strike: float, to: float, tb: float,
-             r0: float, zo: float, zb: float,
-             gamma: float, sigma: float) -> float:
+def zcb_call_put(
+    c_p: CallPut,
+    strike: float,
+    to: float,
+    tb: float,
+    r0: float,
+    zo: float, 
+    zb: float,
+    gamma: float, 
+    sigma: float
+) -> float:
     """
     Calcula el valor de una call o una put sobre un bono cero cupón en el modelo de HW.
     
